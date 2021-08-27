@@ -1,0 +1,38 @@
+1_
+SELECT *
+FROM `students`
+WHERE YEAR( `date_of_birth`) = 1990;
+
+2_
+SELECT *
+FROM `courses`
+WHERE `cfu`> 10;
+
+3_
+SELECT * 
+FROM `students`
+WHERE DATEDIFF(CURRENT_TIMESTAMP,`date_of_birth`)/365 > 30;
+
+4_
+SELECT * 
+FROM `courses`
+WHERE `period` = 'I semestre' AND `year` = 1;
+
+5_
+SELECT *
+FROM `exams`
+WHERE `date` = '2020-06-20' AND `hour` > '14:00:01';
+
+6_
+SELECT *
+FROM `degrees`
+WHERE `level` = 'magistrale';
+
+7_
+SELECT COUNT(*) AS `numero_di_dipartimenti_universitari`
+FROM `departments`;
+
+8_
+SELECT * 
+FROM `teachers`
+WHERE `phone` IS NULL;
