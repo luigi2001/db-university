@@ -1,0 +1,51 @@
+query con GROUP BY
+
+
+1_
+SELECT COUNT(*) AS `numero_iscritti`, YEAR(`enrolment_date`) AS `anno`
+FROM `students`
+GROUP BY `anno`;
+
+2_
+SELECT COUNT(*) AS  `numero_insegnanti`, `office_number` AS `ufficio`
+FROM `teachers`
+GROUP BY `ufficio`;
+
+3_
+SELECT AVG( `vote`) AS  `media_voti`, `exam_id` AS `appello`
+FROM `exam_student`
+GROUP BY `appello`;
+
+4_
+SELECT COUNT(*) AS `numero_corsi_laurea`, `department_id` AS `dipartimento`
+FROM `degrees`
+GROUP BY `dipartimento`;
+
+
+
+query con JOIN
+
+
+
+1_
+SELECT `degrees`.`id`, `degrees`.`name`, `students`.`name`, `students`.`surname`
+FROM `degrees`
+JOIN `students`
+ON `degrees`.`id` = `students`.`degree_id`
+WHERE `degrees`.`name`= 'Corso di Laurea in Economia';
+
+2_
+SELECT `departments`.`id`, `departments`.`name`, `degrees`.`name`, `degrees`.`level`
+FROM `departments`
+JOIN `degrees`
+ON `departments`.`id` = `degrees`.`department_id`
+WHERE `departments`.`name` = 'Dipartimento di Neuroscienze';
+
+3_
+SELECT `teachers`.`id`, `teachers`.`name`, `teachers`.`surname`, `courses`.`name`, `courses`.`description`, `courses`.`period`, `courses`.`year`, `courses`.`cfu`, `courses`.`website`
+FROM `teachers`
+JOIN `course_teacher`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+WHERE `teachers`.`id` = 44;
