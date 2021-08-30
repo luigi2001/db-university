@@ -33,6 +33,6 @@ SELECT COUNT(*) AS `numero_di_dipartimenti_universitari`
 FROM `departments`;
 
 8_
-SELECT * 
+SELECT COUNT(*) AS `numero_insegnanti_senza_numero`
 FROM `teachers`
 WHERE `phone` IS NULL;
