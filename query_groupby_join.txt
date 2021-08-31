@@ -7,7 +7,7 @@ FROM `students`
 GROUP BY `anno`;
 
 2_
-SELECT COUNT(*) AS  `numero_insegnanti`, `office_number` AS `ufficio`
+SELECT COUNT(*) AS  `numero_insegnanti`, `office_address` AS `ufficio`
 FROM `teachers`
 GROUP BY `ufficio`;
 
